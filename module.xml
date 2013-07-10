@@ -9,11 +9,9 @@
     </ModulePrefs>
     <UserPref name="credentials" display_name="Credentials" required="true"/>
     <Content type="html">
-        <div id='dest'>
-            <img src="http://www.google.com/ig/images/spinner.gif"/>
-        </div>
         <![CDATA[
         <div id=content_div>qwe</div>
+        <div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
         <script type="text/javascript">
                 // setup variables
                 print("starting...");
@@ -42,7 +40,13 @@
                 if (client.readyState === 4 && client.status === 200)
                     document.getElementById("content_div").innerHTML = client.responseText;
                 else
-                    document.getElementById("content_div").innerHTML = client.status + " " + client.statusText + ".");
+                    document.getElementById("content_div").innerHTML = client.status + " " + client.statusText + ".";
+
+                function print(msg) {
+                    debug_html += msg;
+                    // Write debug HTML to div
+                    document.getElementById("debug_div").innerHTML = debug_html;
+                }
         </script>
 
         ]]>
