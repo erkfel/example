@@ -31,7 +31,7 @@
                     }
                 }
                 print("requesting...");
-                var url = "https://oleg.aravin:12345@minglehosting.thoughtworks.com/kohls/api/v2/projects/project_3551_cicd/cards/execute_mql.xml?mql=SELECT sprint WHERE type = story AND Sprint=(Current sprint)";
+                var url = "https://oleg.aravin:12345@minglehosting.thoughtworks.com/kohls/api/v2/projects/project_3551_cicd/cards/1132.xml";
                 var client = new XMLHttpRequest();
                 client.open("GET", url, false);
                 client.setRequestHeader("Content-Type", "text/plain");
