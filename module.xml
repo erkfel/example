@@ -14,9 +14,6 @@
         </div>
         <![CDATA[
         <script type="text/javascript">
-            gadgets.util.registerOnLoadHandler(doRender);
-
-            function doRender() {
                 // setup variables
                 var prefs = new gadgets.Prefs();
                 var credentials = prefs.getString('credentials');
@@ -42,7 +39,6 @@
                     document.getElementById("content_div").innerHTML = client.responseText;
                 else
                     document.getElementById("content_div").innerHTML = client.status + " " + client.statusText + ".");
-            }
         </script>
         <div id=content_div>qwe</div>
         ]]>
