@@ -13,8 +13,10 @@
             <img src="http://www.google.com/ig/images/spinner.gif"/>
         </div>
         <![CDATA[
+        <div id=content_div>qwe</div>
         <script type="text/javascript">
                 // setup variables
+                print("starting...");
                 var prefs = new gadgets.Prefs();
                 var credentials = prefs.getString('credentials');
                 var height = 800;
@@ -29,18 +31,20 @@
                         var height = viewport.height;
                     }
                 }
-
+                print("requesting...");
                 var url = "https://oleg.aravin:12345@minglehosting.thoughtworks.com/kohls/api/v2/projects/project_3551_cicd/cards/execute_mql.xml?mql=SELECT sprint WHERE type = story AND Sprint=(Current sprint)";
                 var client = new XMLHttpRequest();
                 client.open("GET", url, false);
                 client.setRequestHeader("Content-Type", "text/plain");
                 client.send();
+                print("response...");
+                print("readyState: " + client.readyState);
                 if (client.readyState === 4 && client.status === 200)
                     document.getElementById("content_div").innerHTML = client.responseText;
                 else
                     document.getElementById("content_div").innerHTML = client.status + " " + client.statusText + ".");
         </script>
-        <div id=content_div>qwe</div>
+
         ]]>
     </Content>
 </Module>
