@@ -14,6 +14,7 @@
         <div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
         <script type="text/javascript">
                 // setup variables
+                var debug_html = "";
                 print("starting...");
                 var prefs = new gadgets.Prefs();
                 var credentials = prefs.getString('credentials');
