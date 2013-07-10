@@ -8,7 +8,7 @@
         <Require feature="dynamic-height"/>
     </ModulePrefs>
     <UserPref name="credentials" display_name="URL to content" required="true"/>
-    <Content type="html" view="default,canvas">
+    <Content type="html">
         <div id='dest'><img src="http://www.google.com/ig/images/spinner.gif"/></div>
         <![CDATA[
         <script type="text/javascript">
