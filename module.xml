@@ -10,6 +10,7 @@
     <UserPref name="credentials" display_name="URL to content" required="true"/>
     <Content type="html" view="default,canvas">
         <div id='dest'><img src="http://www.google.com/ig/images/spinner.gif"/></div>
+        <![CDATA[
         <script type="text/javascript">
             gadgets.util.registerOnLoadHandler(doRender);
 
@@ -41,5 +42,6 @@
                     document.write(client.status + " " + client.statusText + ".");
             }
         </script>
+        ]]>
     </Content>
 </Module>
