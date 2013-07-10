@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="Mingle Integration (draft)" title_url="http://sites.google.com/"
+                 description="Mingle Integration (draft)"
+                 thumbnail="http://www.gstatic.com/sites-gadgets/common/images/sites-icon-gadget-thumb.png"
+                 screenshot="http://www.gstatic.com/sites-gadgets/common/images/sites-icon-gadget-ss.png"
+                 height="800" width="600" author="Google">
+        <Require feature="dynamic-height"/>
+    </ModulePrefs>
+    <UserPref name="credentials" display_name="URL to content" required="true"/>
+    <Content type="html" view="default,canvas">
+        <div id='dest'><img src="http://www.google.com/ig/images/spinner.gif"></div>
+        <script type="text/javascript">
+            gadgets.util.registerOnLoadHandler(doRender);
+
+            function doRender() {
+                // setup variables
+                var prefs = new gadgets.Prefs();
+                var credentials = prefs.getString('credentials');
+                var height = 800;
+                var width = 600;
+
+                if (gadgets.window) {
+                    var viewport = gadgets.window.getViewportDimensions();
+                    if (viewport.width) {
+                        var width = viewport.width;
+                    }
+                    if (viewport.height) {
+                        var height = viewport.height;
+                    }
+                }
+
+                var url = "https://" + credentials + "@minglehosting.thoughtworks.com/kohls/api/v2/projects/project_3551_cicd/cards/execute_mql.xml?mql=SELECT sprint WHERE type = story AND Sprint=(Current sprint)";
+                var client = new XMLHttpRequest();
+                client.open("GET", url, false);
+                client.setRequestHeader("Content-Type", "text/plain");
+                client.send();
+                if (client.readyState === 4 && client.status === 200)
+                    document.write(client.responseText);
+                else
+                    document.write(client.status + " " + client.statusText + ".");
+            }
+        </script>
+    </Content>
+</Module>
