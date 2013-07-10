@@ -9,7 +9,7 @@
     </ModulePrefs>
     <UserPref name="credentials" display_name="URL to content" required="true"/>
     <Content type="html" view="default,canvas">
-        <div id='dest'><img src="http://www.google.com/ig/images/spinner.gif"></div>
+        <div id='dest'><img src="http://www.google.com/ig/images/spinner.gif"/></div>
         <script type="text/javascript">
             gadgets.util.registerOnLoadHandler(doRender);
 
