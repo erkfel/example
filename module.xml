@@ -7,9 +7,11 @@
                  height="800" width="600" author="Google">
         <Require feature="dynamic-height"/>
     </ModulePrefs>
-    <UserPref name="credentials" display_name="URL to content" required="true"/>
+    <UserPref name="credentials" display_name="Credentials" required="true"/>
     <Content type="html">
-        <div id='dest'><img src="http://www.google.com/ig/images/spinner.gif"/></div>
+        <div id='dest'>
+            <img src="http://www.google.com/ig/images/spinner.gif"/>
+        </div>
         <![CDATA[
         <script type="text/javascript">
             gadgets.util.registerOnLoadHandler(doRender);
@@ -31,17 +33,18 @@
                     }
                 }
 
-                var url = "https://" + credentials + "@minglehosting.thoughtworks.com/kohls/api/v2/projects/project_3551_cicd/cards/execute_mql.xml?mql=SELECT sprint WHERE type = story AND Sprint=(Current sprint)";
+                var url = "https://oleg.aravin:12345@minglehosting.thoughtworks.com/kohls/api/v2/projects/project_3551_cicd/cards/execute_mql.xml?mql=SELECT sprint WHERE type = story AND Sprint=(Current sprint)";
                 var client = new XMLHttpRequest();
                 client.open("GET", url, false);
                 client.setRequestHeader("Content-Type", "text/plain");
                 client.send();
                 if (client.readyState === 4 && client.status === 200)
-                    document.write(client.responseText);
+                    document.getElementById("content_div").innerHTML = client.responseText;
                 else
-                    document.write(client.status + " " + client.statusText + ".");
+                    document.getElementById("content_div").innerHTML = client.status + " " + client.statusText + ".");
             }
         </script>
+        <div id=content_div>qwe</div>
         ]]>
     </Content>
 </Module>
